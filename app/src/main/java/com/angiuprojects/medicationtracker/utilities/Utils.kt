@@ -48,7 +48,7 @@ class Utils {
             val popUpView: View = inflater.inflate(R.layout.new_medication_popup, null)
             dialog.setContentView(popUpView)
 
-            handleAlreadySelectedDays(popUpView, medication, context)
+            handleAlreadySelectedDays(popUpView, medication)
             popUpView.findViewById<ImageButton>(R.id.switch_days).setOnClickListener { daysList = openDaysSelectionPopUp(context, medication, popUpView) }
 
             if(medication != null) setInfoFromMedication(medication, popUpView)
@@ -160,7 +160,7 @@ class Utils {
             setPreselectedDays(medication, newPopUpView)
 
             newPopUpView.findViewById<Button>(R.id.ok_button).setOnClickListener {
-                onClickSetDays(dialog, newPopUpView, popUpView, context, medication) }
+                onClickSetDays(dialog, newPopUpView, popUpView, medication) }
 
             dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialog.show()
@@ -181,7 +181,7 @@ class Utils {
             }
         }
 
-        private fun onClickSetDays(dialog: Dialog, newPopUpView: View, popUpView: View, context: Context, m: Medication?)
+        private fun onClickSetDays(dialog: Dialog, newPopUpView: View, popUpView: View, m: Medication?)
         : MutableList<Boolean> {
 
             daysList[0] = newPopUpView.findViewById<CheckBox>(R.id.checkbox_lun).isChecked
@@ -194,13 +194,13 @@ class Utils {
 
             if(!daysList.contains(true)) daysList = mutableListOf(true, true, true, true, true, true, true)
 
-            handleAlreadySelectedDays(popUpView, m, context)
+            handleAlreadySelectedDays(popUpView, m)
 
             dialog.dismiss()
             return daysList
         }
 
-        private fun handleAlreadySelectedDays(popUpView: View, m: Medication?, context: Context) {
+        private fun handleAlreadySelectedDays(popUpView: View, m: Medication?) {
             val daysList = m?.daysList ?: daysList
 
             if(daysList.contains(false)) {
@@ -223,16 +223,13 @@ class Utils {
 
                 Log.i(Constants.logger, "SELECTED DAYS: $selectedDays")
 
-                if(selectedDays != "") selectedDays = selectedDays.trim().dropLast(1)
-                else selectedDays = textView.text.toString()
+                selectedDays = if(selectedDays != "") selectedDays.trim().dropLast(1)
+                               else textView.text.toString()
 
                 Log.i(Constants.logger, "SELECTED DAYS 2: $selectedDays")
 
                 textView.text = selectedDays
             }
-
-           // popUpView.findViewById<ImageButton>(R.id.switch_days).setOnClickListener {
-            //    daysList = openDaysSelectionPopUp(context, m, popUpView) }
         }
     }
 }

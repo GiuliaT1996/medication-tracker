@@ -101,8 +101,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     private fun showWarningPopUp(profile: Profile, medication: Medication) {
         val dialog = Dialog(this)
         val inflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater

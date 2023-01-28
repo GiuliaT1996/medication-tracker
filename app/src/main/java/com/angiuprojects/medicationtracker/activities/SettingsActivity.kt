@@ -1,9 +1,8 @@
 package com.angiuprojects.medicationtracker.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.angiuprojects.medicationtracker.R
+import androidx.appcompat.app.AppCompatActivity
 import com.angiuprojects.medicationtracker.databinding.ActivitySettingsBinding
 import com.angiuprojects.medicationtracker.utilities.Constants
 import com.angiuprojects.medicationtracker.utilities.ReadWriteJson

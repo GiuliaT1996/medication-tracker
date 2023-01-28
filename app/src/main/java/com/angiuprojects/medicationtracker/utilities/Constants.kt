@@ -2,7 +2,6 @@ package com.angiuprojects.medicationtracker.utilities
 
 import com.angiuprojects.medicationtracker.entities.Profile
 import com.angiuprojects.medicationtracker.entities.UserDTO
-import java.math.BigInteger
 
 class Constants {
 
