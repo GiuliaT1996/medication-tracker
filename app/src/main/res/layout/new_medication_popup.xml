@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/round_background"
+    android:padding="60dp"
+    android:layout_centerInParent="true">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_input_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/nome_medicina"
+        android:layout_marginBottom="20dp"
+        android:textColorHint="@color/purple_700"
+        app:boxStrokeColor="@color/purple_700"
+        app:endIconTint="@color/transparent">
+
+        <AutoCompleteTextView
+            android:id="@+id/name_auto_complete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:inputType="text"
+            android:textColor="@color/purple_700"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/total_pills_input_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/pillole_totali"
+        android:layout_marginBottom="20dp"
+        android:textColorHint="@color/purple_700"
+        app:boxStrokeColor="@color/purple_700"
+        app:endIconTint="@color/transparent"
+        android:layout_below="@+id/name_input_text">
+
+        <AutoCompleteTextView
+            android:id="@+id/total_pills_auto_complete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:inputType="number"
+            android:textColor="@color/purple_700"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/remaining_pills_input_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/pillole_nella_scatola"
+        android:layout_marginBottom="20dp"
+        android:textColorHint="@color/purple_700"
+        app:boxStrokeColor="@color/purple_700"
+        app:endIconTint="@color/transparent"
+        android:layout_below="@+id/total_pills_input_text">
+
+        <AutoCompleteTextView
+            android:id="@+id/remaining_pills_auto_complete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:inputType="number"
+            android:textColor="@color/purple_700"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pills_a_day_input_text"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/pillole_al_giorno"
+        android:layout_marginBottom="20dp"
+        android:textColorHint="@color/purple_700"
+        app:boxStrokeColor="@color/purple_700"
+        app:endIconTint="@color/transparent"
+        android:layout_below="@+id/remaining_pills_input_text">
+
+        <AutoCompleteTextView
+            android:id="@+id/pills_a_day_auto_complete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:inputType="number"
+            android:textColor="@color/purple_700"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/switch_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pills_a_day_input_text"
+        android:backgroundTint="@color/purple_200"
+        android:background="@android:drawable/ic_menu_edit"/>
+
+    <TextView
+        android:id="@+id/selected_days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/switch_days"
+        android:layout_alignBottom="@+id/switch_days"
+        android:layout_toEndOf="@+id/switch_days"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/purple_200"
+        android:layout_alignEnd="@+id/remaining_pills_input_text"
+        android:autoSizeMaxTextSize="20sp"
+        android:autoSizeMinTextSize="5sp"
+        android:autoSizeTextType="uniform"
+        android:text="@string/seleziona_giorni"
+        android:gravity="center_vertical"/>
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch_days"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/add"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_button"
+        android:layout_marginTop="30dp"
+        android:text="@string/escludere_quelle_gi_prese_o_da_prendere_oggi"
+        android:textSize="10sp"/>
+
+</RelativeLayout>

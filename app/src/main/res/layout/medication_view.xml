@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+    <TextView
+        android:id="@+id/medication_name"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Nome Medicina"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_toStartOf="@+id/edit"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/purple_700"
+        android:textAllCaps="true"
+        />
+
+    <TextView
+        android:id="@+id/days"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/medication_name"
+        android:textColor="@color/purple_700"
+        android:layout_toStartOf="@+id/edit"
+        android:text="Giorni rimanenti:"/>
+
+    <ImageButton
+        android:id="@+id/edit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@id/delete"
+        android:backgroundTint="@color/purple_200"
+        android:background="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:background="@android:drawable/ic_menu_delete"
+        android:backgroundTint="@color/purple_200" />
+
+</RelativeLayout>

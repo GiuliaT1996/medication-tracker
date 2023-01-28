@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Medication Tracker</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Impostazioni</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_share">Condividi</string>
+    <string name="menu_to_buy">Da Comprare</string>
+    <string name="title">"Medicine"</string>
+    <string name="profile">Super Giant Profile</string>
+    <string name="add">Aggiungi</string>
+    <string name="nome">Nome Profilo</string>
+    <string name="nome_medicina">Nome Medicina</string>
+    <string name="pillole_nella_scatola">Nella Scatola</string>
+    <string name="pillole_totali">Totali</string>
+    <string name="pillole_al_giorno">Al Giorno</string>
+    <string name="medicine_da_comprare">Medicine da Comprare</string>
+    <string name="si">SI</string>
+    <string name="no">NO</string>
+    <string name="profilo">Profilo</string>
+    <string name="medicina">Medicina</string>
+    <string name="giorni_rimanenti">Giorni Rimanenti</string>
+    <string name="work_in_progress">Work in Progress</string>
+    <string name="settings">Impostazioni</string>
+    <string name="days">Giorni</string>
+    <string name="days_label">Giorni Precedenti per Segnalazione:</string>
+    <string name="done">Fatto</string>
+    <string name="save">salva</string>
+    <string name="seleziona_giorni">Seleziona Giorni</string>
+    <string name="lun">Lunedì</string>
+    <string name="mar">Martedì</string>
+    <string name="mer">Mercoledì</string>
+    <string name="gio">Giovedì</string>
+    <string name="ven">Venerdì</string>
+    <string name="sa">Sabato</string>
+    <string name="dom">Domenica</string>
+    <string name="ok">OK</string>
+    <string name="escludere_quelle_gi_prese_o_da_prendere_oggi">Escludere quelle già prese o da prendere oggi.</string>
+
+</resources>
