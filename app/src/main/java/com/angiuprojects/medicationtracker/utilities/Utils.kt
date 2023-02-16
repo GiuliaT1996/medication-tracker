@@ -19,7 +19,7 @@ import java.time.LocalDate
 
 class Utils {
 
-    companion object{
+    companion object {
 
         private lateinit var daysList: MutableList<Boolean>
 
@@ -42,14 +42,16 @@ class Utils {
                                 position: Int?) {
             val dialog = Dialog(context)
 
-            if(!this::daysList.isInitialized || medication == null) daysList = mutableListOf(true, true, true, true, true, true, true)
+            if(!this::daysList.isInitialized || medication == null)
+                daysList = mutableListOf(true, true, true, true, true, true, true)
 
             val inflater = context.getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val popUpView: View = inflater.inflate(R.layout.new_medication_popup, null)
             dialog.setContentView(popUpView)
 
             handleAlreadySelectedDays(popUpView, medication)
-            popUpView.findViewById<ImageButton>(R.id.switch_days).setOnClickListener { daysList = openDaysSelectionPopUp(context, medication, popUpView) }
+            popUpView.findViewById<ImageButton>(R.id.switch_days).setOnClickListener {
+                daysList = openDaysSelectionPopUp(context, medication, popUpView) }
 
             if(medication != null) setInfoFromMedication(medication, popUpView)
 
@@ -105,9 +107,7 @@ class Utils {
 
         fun checkSelectedDay(days: Long, medication: Medication) {
 
-            var dayToConsider = 0
-            if(LocalDate.now().dayOfWeek.value - 1 - days < 1)
-                dayToConsider = ((LocalDate.now().dayOfWeek.value - 1 - days) % 7).toInt()
+            val dayToConsider = (LocalDate.now().dayOfWeek.value - days).mod(7)
 
             if(medication.daysList[dayToConsider])
                 medication.remainingPills = (medication.remainingPills - medication.pillsADay)
@@ -149,7 +149,8 @@ class Utils {
         }
 
         //pass medication only if updating
-        private fun openDaysSelectionPopUp(context: Context, medication: Medication?, popUpView: View) : MutableList<Boolean> {
+        private fun openDaysSelectionPopUp(context: Context, medication: Medication?, popUpView: View)
+        : MutableList<Boolean> {
            if(!this::daysList.isInitialized) daysList = mutableListOf(true, true, true, true, true, true, true)
 
             val dialog = Dialog(context)

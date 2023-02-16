@@ -54,8 +54,6 @@ class MainActivity : AppCompatActivity() {
         ReadWriteJson.initializeSingleton()
         Constants.currentUser = ReadWriteJson.getInstance().getUser(this, resetUserDTO = false)
 
-        ReadWriteJson.getInstance().write(this, false)
-
         homeFragment = HomeFragment()
         fragmentManager = supportFragmentManager
         fragmentTransaction = fragmentManager.beginTransaction()
@@ -63,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         handleLayout()
 
         generateWarnings()
-
+        ReadWriteJson.getInstance().write(this, false)
         binding.appBarMain.toolbar.menu
     }
 
@@ -82,15 +80,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun generateWarnings() {
 
-        var days = Duration.between(LocalDate.now().atStartOfDay(), Constants.currentUser.lastUpdate.atStartOfDay()).toDays()
+        val days = Duration.between(Constants.currentUser.lastUpdate.atStartOfDay(), LocalDate.now().atStartOfDay()).toDays()
 
         Constants.currentUser.profiles.forEach { profile ->
             profile.pills.forEach { medication ->
+                var daysForEachMedication = days
                 // per ogni giorno passato dall'ultimo aggiornamento, controllo se è uno dei giorni selezionati:
                 // se sì scalo le pillole, altrimenti no
-                while(days > 0) {
-                    Utils.checkSelectedDay(days, medication)
-                    days--
+                while(daysForEachMedication > 0) {
+                    Utils.checkSelectedDay(daysForEachMedication, medication)
+                    daysForEachMedication--
                 }
 
                 //controllo quanti giorni mancano al termine considerando anche che alcuni giorni non sono selezionati
